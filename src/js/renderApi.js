@@ -12,12 +12,13 @@ refs.form.addEventListener(
     refs.input.value = "";
   }, 1000)
 );
+const loadMoreBtn = document.createElement("button");
+loadMoreBtn.addEventListener("click", loadMore);
 
 function renderApi() {
   apiService.fetchImages().then(({ hits }) => renderImages(hits));
 }
 
-const loadMoreBtn = document.createElement("button");
 loadMoreBtn.textContent = "Load more";
 loadMoreBtn.classList.add("load-more");
 
@@ -33,5 +34,6 @@ function renderImages(data) {
 }
 
 function loadMore() {
+  apiService.setPage();
   apiService.fetchImages().then(({ hits }) => renderImages(hits));
 }
