@@ -7,11 +7,16 @@ export default {
   _querry: "",
   page: 1,
   perPage: 12,
-  fetchImages() {
+
+  async fetchImages() {
     let url = `${baseUrl}?image_type=photo&orientation=horizontal&q=${this._querry}&page=${this.page}&per_page=${this.perPage}&key=${apiKey}`;
-    return fetch(url)
-      .then((res) => res.json())
-      .catch((error) => displayEror(error));
+    try {
+      const res = await fetch(url);
+      const getResponse = await res.json();
+      return getResponse.hits;
+    } catch (error) {
+      throw displayEror(error);
+    }
   },
   setPage() {
     return this.page++;

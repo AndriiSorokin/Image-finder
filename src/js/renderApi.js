@@ -38,7 +38,7 @@ loadMoreBtn.textContent = "Load more";
 loadMoreBtn.classList.add("load-more");
 
 function renderApi() {
-  apiService.fetchImages().then(({ hits }) => renderImages(hits));
+  apiService.fetchImages().then((data) => renderImages(data));
 }
 
 function renderImages(data) {
@@ -54,13 +54,12 @@ function renderImages(data) {
 
 function loadMore() {
   apiService.setPage();
-  apiService.fetchImages().then(({ hits }) => renderImages(hits));
+  apiService.fetchImages().then((data) => renderImages(data));
 
   setTimeout(() => {
-    window.scrollTo(0, 100);
     window.scrollTo({
-      top: 1500,
+      top: document.documentElement.offsetHeight - 800,
       behavior: "smooth",
     });
-  }, 1000);
+  }, 600);
 }
