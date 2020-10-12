@@ -1,6 +1,6 @@
 body {
-  background-color: rgb(37, 36, 36);
-  color: wheat;
+  background-color: rgb(110, 50, 50);
+  color: rgb(173, 128, 46);
 }
 
 .search-form {
@@ -24,8 +24,8 @@ body {
   padding: 10px 20px;
   font-size: 24px;
   border-radius: 10px;
-  background-color: peachpuff;
-  color: brown;
+  background-color: rgb(133, 81, 36);
+  color: rgb(70, 51, 51);
 }
 
 .hidden {
